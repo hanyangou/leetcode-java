@@ -1,4 +1,4 @@
-package com.po.quiz.basic;
+package com.po.quiz.design;
 
 
 import com.po.leetcode.NestedInteger;
