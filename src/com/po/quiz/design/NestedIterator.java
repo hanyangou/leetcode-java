@@ -3,43 +3,46 @@ package com.po.quiz.design;
 
 import com.po.leetcode.NestedInteger;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Stack;
 
 public class NestedIterator implements Iterator<Integer> {
 
-    private Stack<NestedInteger> integers;
-
+    ArrayList<Integer> list;
+    int idx;
     public NestedIterator(List<NestedInteger> nestedList) {
-        integers = new Stack<>();
-        for(int i = nestedList.size() - 1; i >= 0; i--){
-            integers.add(nestedList.get(i));
+        list = new ArrayList<>();
+        idx = 0;
+        for(int i = 0; i < nestedList.size(); i++){
+            NestedInteger ni = nestedList.get(i);
+            if(ni.isInteger())
+                list.add(ni.getInteger());
+            else
+                flatten(ni.getList());
+        }
+    }
+
+    public void flatten(List<NestedInteger> nestedList){
+        for(int i = 0; i < nestedList.size(); i++){
+            NestedInteger ni = nestedList.get(i);
+            if(ni.isInteger())
+                list.add(ni.getInteger());
+            else
+                flatten(ni.getList());
         }
     }
 
     @Override
     public Integer next() {
-        if(hasNext()){
-            return integers.pop().getInteger();
-        } else { //no element left in Iterator
-            return null;
-        }
+        Integer ans = list.get(idx);
+        idx++;
+        return ans;
     }
 
     @Override
     public boolean hasNext() {
-        makeTopInteger();
-        return !integers.isEmpty();
+        return idx < list.size();
     }
 
-    private void makeTopInteger(){
-        //check peek and unpack it if it's a list
-        while(!integers.isEmpty() && !integers.peek().isInteger()){
-            List<NestedInteger> list = integers.pop().getList();
-            for(int i = list.size() - 1; i >= 0; i--){
-                integers.add(list.get(i));
-            }
-        }
-    }
 }
