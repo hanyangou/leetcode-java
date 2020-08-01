@@ -1,27 +1,23 @@
 package com.po;
 
+import com.po.quiz.bfs.Q127;
+import com.po.quiz.calculator.Q772;
 import com.po.quiz.design.AutocompleteSystem;
+import com.po.quiz.design.FileSystem;
+import com.po.quiz.dp.Q140;
+import com.po.quiz.dp.Q85;
+import com.po.quiz.heap.Q4;
+import com.po.quiz.string.Q68;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        String[] input1 = new String[]{"i love you","island","ironman","i love leetcode"};
-        int[] input2 = new int[]{5,3,2,2};
-        AutocompleteSystem system = new AutocompleteSystem(input1, input2);
-        system.input('i');
-        system.input(' ');
-        system.input('a');
-        system.input('#');
-        system.input('i');
-        system.input(' ');
-        system.input('a');
-        system.input('#');
-
-        
-        
-        print(ip("120.0.0.1"));
-        print(ip("2001:0db8:85a3:0000:0000:8a2e:0370:7334"));
-        print(ip("123.0.0"));
+        Q140 q = new Q140();
+        List<String> list = Arrays.asList(new String[]{"aaaa","aa","a"});
+        q.wordBreak("aaaaaaa", list);
     }
 
     public static String ip(String ip){
