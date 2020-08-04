@@ -1,13 +1,7 @@
 package com.po;
 
-import com.po.quiz.bfs.Q127;
-import com.po.quiz.calculator.Q772;
-import com.po.quiz.design.AutocompleteSystem;
-import com.po.quiz.design.FileSystem;
+
 import com.po.quiz.dp.Q140;
-import com.po.quiz.dp.Q85;
-import com.po.quiz.heap.Q4;
-import com.po.quiz.string.Q68;
 
 import java.util.Arrays;
 import java.util.List;
