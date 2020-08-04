@@ -10,8 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
         Q140 q = new Q140();
-        List<String> list = Arrays.asList(new String[]{"aaaa","aa","a"});
-        q.wordBreak("aaaaaaa", list);
+        List<String> list = Arrays.asList(new String[]{"cat","cats","and","sand","dog"});
+        q.wordBreak("catsanddog", list);
     }
 
     public static String ip(String ip){
