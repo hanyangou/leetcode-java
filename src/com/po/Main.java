@@ -1,17 +1,14 @@
 package com.po;
 
 
-import com.po.quiz.dp.Q140;
-
-import java.util.Arrays;
-import java.util.List;
+import com.po.quiz.dp.Q2222;
 
 public class Main {
 
     public static void main(String[] args) {
-        Q140 q = new Q140();
-        List<String> list = Arrays.asList(new String[]{"cat","cats","and","sand","dog"});
-        q.wordBreak("catsanddog", list);
+        String[] strs = new String[]{"cat","cats","catsdogcats","dog"};
+        Q2222 q = new Q2222();
+        q.findAllConcatenatedWordsInADict(strs);
     }
 
     public static String ip(String ip){
