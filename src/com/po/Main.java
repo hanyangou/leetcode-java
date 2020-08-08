@@ -1,21 +1,17 @@
 package com.po;
 
 
-import com.po.quiz.dp.Q2222;
+import com.po.quiz.segmenttree.Q315;
 
 public class Main {
 
     public static void main(String[] args) {
-        String[] strs = new String[]{"cat","cats","catsdogcats","dog"};
-        Q2222 q = new Q2222();
-        q.findAllConcatenatedWordsInADict(strs);
+        int[] input = new int[]{5,2,6,1};
+        Q315 q = new Q315();
+        q.countSmaller(input);
     }
 
     public static String ip(String ip){
-
-
-
-
         int dot = 0;
         for(char c : ip.toCharArray()){
             if(c == '.') dot++;
