@@ -10,28 +10,43 @@ import java.util.*;
  */
 
 public class Codec {
-    String DELIMITER = ",";
-    String NULL = "#";
+    static String DELIMITER = ",";
+    static String NULL = "#";
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         serializeHelper(root, sb);
-        return null;
+        return sb.deleteCharAt(sb.length() - 1).toString();
     }
 
     private void serializeHelper(TreeNode node, StringBuilder sb){
-        if(node == null) return;
-        Deque<TreeNode> stack = new ArrayDeque<>();
-        stack.push(node);
-        while(node != null && !stack.isEmpty()){
-            node = stack.pop();
-            sb.append(node.val);
+        if(node == null) {
+            sb.append(NULL);
             sb.append(DELIMITER);
+            return;
         }
+        sb.append(node.val);
+        sb.append(DELIMITER);
+        serializeHelper(node.left, sb);
+        serializeHelper(node.right, sb);
     }
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        return null;
+        String[] d = data.split(",");
+        List<String> list = new ArrayList<>(Arrays.asList(d));
+        return dHelper(list);
+    }
+
+    private TreeNode dHelper(List<String> list){
+        String s = list.get(0);
+        list.remove(0);
+        if(s.equals(NULL)){
+            return null;
+        }
+        TreeNode node = new TreeNode(Integer.valueOf(s));
+        node.left = dHelper(list);
+        node.right = dHelper(list);
+        return node;
     }
 }
