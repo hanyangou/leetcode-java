@@ -1,10 +1,13 @@
 package com.po;
 import com.po.leetcode.TreeNode;
+import com.po.leetcode.utils.TreeUtil;
 
 public class Main {
 
-    public static void main(String[] args) {
-        TreeNode node = new TreeNode(1);
+    public static void main(String[] args)
+    {
+        TreeNode node = TreeUtil.tree("0,1,3,#,4,#,#,5,6,#,#,#,2,#,7,#,#");
+        return;
     }
 
     public static String ip(String ip) {

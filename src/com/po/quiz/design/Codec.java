@@ -13,13 +13,13 @@ public class Codec {
     static String DELIMITER = ",";
     static String NULL = "#";
     // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
+    public static String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         serializeHelper(root, sb);
         return sb.deleteCharAt(sb.length() - 1).toString();
     }
 
-    private void serializeHelper(TreeNode node, StringBuilder sb){
+    private static void serializeHelper(TreeNode node, StringBuilder sb){
         if(node == null) {
             sb.append(NULL);
             sb.append(DELIMITER);
@@ -32,13 +32,13 @@ public class Codec {
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public static TreeNode deserialize(String data) {
         String[] d = data.split(",");
         List<String> list = new ArrayList<>(Arrays.asList(d));
         return dHelper(list);
     }
 
-    private TreeNode dHelper(List<String> list){
+    private static TreeNode dHelper(List<String> list){
         String s = list.get(0);
         list.remove(0);
         if(s.equals(NULL)){
