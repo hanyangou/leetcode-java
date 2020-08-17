@@ -1,13 +1,17 @@
 package com.po;
-import com.po.leetcode.TreeNode;
-import com.po.leetcode.utils.TreeUtil;
+
+import com.po.quiz.design.RandomizedCollection;
+import com.po.quiz.design.RandomizedSet;
 
 public class Main {
 
-    public static void main(String[] args)
-    {
-        TreeNode node = TreeUtil.tree("0,1,3,#,4,#,#,5,6,#,#,#,2,#,7,#,#");
-        return;
+    public static void main(String[] args) {
+        RandomizedCollection set = new RandomizedCollection();
+        set.insert(0);
+        set.remove(0);
+        set.insert(-1);
+        set.remove(0);
+        set.getRandom();
     }
 
     public static String ip(String ip) {
